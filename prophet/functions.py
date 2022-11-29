@@ -1,4 +1,12 @@
+# Import packages
+from prophet import Prophet
+
 # Model training
+"""
+df should have the following format [y, ds]
+y : values
+ds : time
+"""
 
 def time_series_train(df, growth='linear',
                           changepoints=None,
@@ -22,8 +30,8 @@ def time_series_train(df, growth='linear',
   return m
   
   
-  # Making predictions
   
+# Making predictions
   """
 m -> Prophet
 plot -> boolean : that tells us if we'll plot tha forecasting graphic
