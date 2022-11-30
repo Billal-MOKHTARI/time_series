@@ -24,7 +24,23 @@ def time_series_train(df, growth='linear',
                           interval_width=0.80,
                           uncertainty_samples=1000,
                           stan_backend=None):
-  m = Prophet(interval_width=0.95, daily_seasonality=True)
+  m = Prophet(growth,
+              changepoints,
+              n_changepoints,
+              changepoint_range,
+              yearly_seasonality,
+              weekly_seasonality,
+              daily_seasonality,
+              holidays,
+              seasonality_mode,
+              seasonality_prior_scale,
+              holidays_prior_scale,
+              changepoint_prior_scale,
+              mcmc_samples,
+              interval_width,
+              uncertainty_samples,
+              stan_backend)
+  
   model = m.fit(df)
 
   return m
